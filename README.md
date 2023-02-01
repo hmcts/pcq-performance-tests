@@ -13,7 +13,7 @@ This is the Protected Characteristic Questions Performance Tests implemented in 
 </p>
 
 <p align="center">
-  <img src="pcq_overview.png" width="500"/>
+  <img src="https://raw.githubusercontent.com/hmcts/pcq-frontend/master/pcq_overview.png" width="500"/>
 </p>
 
 ## Getting Started
