@@ -30,13 +30,13 @@ tasks.withType(Copy).all{
     duplicatesStrategy = DuplicatesStrategy.EXCLUDE
 }
 
-repositories {
-    mavenCentral()
-}
-
 dependencies {
     gatling 'io.circe:circe-parser_2.13:0.14.0-M6'
     gatling "io.circe:circe-generic_2.13:0.14.0-M6"
+}
+
+repositories {
+    mavenCentral()
 }
 
 gatling {
@@ -45,6 +45,10 @@ gatling {
     simulations = {
         include "uk.gov.hmcts.pcq.simulations.PCQSimulation"
     }
+}
+
+dependencyCheck {
+    analyzers.assemblyEnabled = false
 }
 
 sourceSets {
