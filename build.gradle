@@ -43,7 +43,7 @@ gatling {
     gatlingVersion '3.8.4'
     scalaVersion '2.13.9'
     simulations = {
-        include "uk.gov.hmcts.pcq.simulations.PCQSimulation"
+        include "uk/gov/hmcts/pcq/simulations/PCQSimulation.scala"
     }
 }
 
