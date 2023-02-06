@@ -1,6 +1,6 @@
 plugins {
     id 'scala'
-    id 'io.gatling.gradle' version '3.9.0.1'
+    id 'io.gatling.gradle' version '3.9.0'
     id "org.owasp.dependencycheck" version "8.0.2"
 }
 
@@ -40,7 +40,7 @@ repositories {
 }
 
 gatling {
-    gatlingVersion '3.9.0.1'
+    gatlingVersion '3.9.0'
     scalaVersion '2.13.9'
     simulations = {
         include "uk/gov/hmcts/pcq/simulations/PCQSimulation.scala"
