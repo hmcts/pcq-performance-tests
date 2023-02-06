@@ -51,6 +51,10 @@ dependencyCheck {
     analyzers.assemblyEnabled = false
 }
 
+dependencies {
+    implementation group: 'io.gatling.highcharts', name: 'gatling-charts-highcharts', version: '3.9.0'
+}
+
 sourceSets {
     gatling {
         scala {
