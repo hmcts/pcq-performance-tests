@@ -32,7 +32,6 @@ dependencyManagement {
             entry 'netty-resolver-dns'
             entry 'netty-resolver-dns-classes-macos'
             entry 'netty-resolver-dns-native-macos'
-            entry 'netty-tcnative-classes'
             entry 'netty-transport'
             entry 'netty-transport-classes-epoll'
             entry 'netty-transport-classes-kqueue'
