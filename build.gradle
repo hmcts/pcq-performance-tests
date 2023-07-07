@@ -1,7 +1,8 @@
 plugins {
     id 'scala'
-    id 'io.gatling.gradle' version '3.9.0'
-    id "org.owasp.dependencycheck" version "8.0.2"
+    id 'io.gatling.gradle' version '3.9.5.1'
+    id "org.owasp.dependencycheck" version "8.3.1"
+    id 'io.spring.dependency-management' version '1.0.10.RELEASE'
 }
 
 apply plugin: 'scala'
@@ -10,6 +11,43 @@ apply plugin: "org.owasp.dependencycheck"
 
 group 'uk.gov.hmcts.reform'
 version = '1.0'
+
+dependencyManagement {
+    imports {
+        mavenBom "org.springframework.cloud:spring-cloud-dependencies:2022.0.2"
+    }
+    dependencies {
+        // CVE-2022-24823
+        dependencySet(group: 'io.netty', version: '4.1.94.Final') {
+            entry 'netty-buffer'
+            entry 'netty-codec'
+            entry 'netty-codec-dns'
+            entry 'netty-codec-http'
+            entry 'netty-codec-http2'
+            entry 'netty-codec-socks'
+            entry 'netty-common'
+            entry 'netty-handler'
+            entry 'netty-handler-proxy'
+            entry 'netty-resolver'
+            entry 'netty-resolver-dns'
+            entry 'netty-resolver-dns-classes-macos'
+            entry 'netty-resolver-dns-native-macos'
+            entry 'netty-tcnative-classes'
+            entry 'netty-transport'
+            entry 'netty-transport-classes-epoll'
+            entry 'netty-transport-classes-kqueue'
+            entry 'netty-transport-native-epoll'
+            entry 'netty-transport-native-kqueue'
+            entry 'netty-transport-native-unix-common'
+            entry 'netty-codec-mqtt'
+        }
+        dependencySet(group: 'org.scala-lang', version: '2.13.11') {
+            entry 'scala-library'
+            entry 'scala-compiler'
+            entry 'scala-reflect'
+        }
+    }
+}
 
 java {
     toolchain {
@@ -41,8 +79,8 @@ repositories {
 }
 
 gatling {
-    gatlingVersion '3.9.0'
-    scalaVersion '2.13.9'
+    gatlingVersion '3.9.3'
+    scalaVersion '2.13.10'
     simulations = {
         include "uk/gov/hmcts/pcq/simulations/PCQSimulation.scala"
     }
@@ -60,9 +98,12 @@ dependencyCheck {
     }
 }
 
+
+
 dependencies {
-    implementation group: 'io.gatling.highcharts', name: 'gatling-charts-highcharts', version: '3.9.0'
+    implementation group: 'io.gatling.highcharts', name: 'gatling-charts-highcharts', version: '3.9.5'
 }
+
 
 sourceSets {
     gatling {
