@@ -14,7 +14,7 @@ version = '1.0'
 
 dependencyManagement {
     imports {
-        mavenBom "org.springframework.cloud:spring-cloud-dependencies:2022.0.2"
+        mavenBom "org.springframework.cloud:spring-cloud-dependencies:2022.0.3"
     }
     dependencies {
         // CVE-2022-24823
@@ -78,7 +78,7 @@ repositories {
 }
 
 gatling {
-    gatlingVersion '3.9.3'
+    gatlingVersion '3.9.5'
     scalaVersion '2.13.10'
     simulations = {
         include "uk/gov/hmcts/pcq/simulations/PCQSimulation.scala"
