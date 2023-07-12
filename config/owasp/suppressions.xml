@@ -11,4 +11,8 @@
     ]]></notes>
         <cve>CVE-2023-35116</cve>
     </suppress>
+    <suppress>
+        <notes>There is no fix yet (2023-07-12)</notes>
+        <cve>CVE-2023-33201</cve>
+    </suppress>
 </suppressions>
