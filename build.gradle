@@ -40,7 +40,7 @@ dependencyManagement {
             entry 'netty-transport-native-unix-common'
             entry 'netty-codec-mqtt'
         }
-        dependencySet(group: 'org.scala-lang', version: '2.13.11') {
+        dependencySet(group: 'org.scala-lang', version: '2.13.12') {
             entry 'scala-library'
             entry 'scala-compiler'
             entry 'scala-reflect'
