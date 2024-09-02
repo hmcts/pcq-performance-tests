@@ -104,7 +104,7 @@ dependencyCheck {
 
 
 dependencies {
-    implementation group: 'io.gatling.highcharts', name: 'gatling-charts-highcharts', version: '3.10.0'
+    implementation group: 'io.gatling.highcharts', name: 'gatling-charts-highcharts', version: '3.11.5'
 }
 
 
