@@ -81,11 +81,14 @@ repositories {
     mavenCentral()
 }
 
-gatling {
-    gatlingVersion '3.9.5'
-    scalaVersion '2.13.10'
-    simulations = {
-        include "uk/gov/hmcts/pcq/simulations/PCQSimulation.scala"
+sourceSets {
+    gatling {
+        scala {
+            srcDir 'src/gatling/simulations'
+        }
+        resources {
+            srcDir 'src/gatling/resources'
+        }
     }
 }
 
