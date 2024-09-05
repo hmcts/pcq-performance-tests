@@ -81,15 +81,8 @@ repositories {
     mavenCentral()
 }
 
-sourceSets {
-    gatling {
-        scala {
-            srcDir 'src/gatling/simulations'
-        }
-        resources {
-            srcDir 'src/gatling/resources'
-        }
-    }
+gatlingRun {
+    simulationClassName =  'uk.gov.hmcts.pcq.simulations.PCQSimulation'
 }
 
 dependencyCheck {
