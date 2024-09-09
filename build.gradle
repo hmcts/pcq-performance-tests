@@ -45,7 +45,7 @@ dependencyManagement {
             entry 'scala-compiler'
             entry 'scala-reflect'
         }
-        dependencySet(group: 'ch.qos.logback', version: '1.5.7') {
+        dependencySet(group: 'ch.qos.logback', version: '1.5.8') {
             entry 'logback-core'
             entry 'logback-classic'
         }
