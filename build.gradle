@@ -14,7 +14,7 @@ version = '1.0'
 
 dependencyManagement {
     imports {
-        mavenBom "org.springframework.cloud:spring-cloud-dependencies:2023.0.3"
+        mavenBom "org.springframework.cloud:spring-cloud-dependencies:2023.0.4"
     }
     dependencies {
         // CVE-2022-24823
