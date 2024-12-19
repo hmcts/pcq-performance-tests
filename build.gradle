@@ -1,8 +1,8 @@
 plugins {
     id 'scala'
     id 'io.gatling.gradle' version '3.12.0.2'
-    id "org.owasp.dependencycheck" version "10.0.4"
-    id 'io.spring.dependency-management' version '1.1.6'
+    id "org.owasp.dependencycheck" version "11.1.1"
+    id 'io.spring.dependency-management' version '1.1.7'
 }
 
 apply plugin: 'scala'
@@ -18,7 +18,7 @@ dependencyManagement {
     }
     dependencies {
         // CVE-2022-24823
-        dependencySet(group: 'io.netty', version: '4.1.113.Final') {
+        dependencySet(group: 'io.netty', version: '4.1.116.Final') {
             entry 'netty-buffer'
             entry 'netty-codec'
             entry 'netty-codec-dns'
