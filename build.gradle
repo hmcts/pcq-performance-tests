@@ -100,7 +100,11 @@ dependencyCheck {
 
 
 dependencies {
-    implementation group: 'io.gatling.highcharts', name: 'gatling-charts-highcharts', version: '3.13.5'
+    dependencies {
+        implementation('io.gatling.highcharts:gatling-charts-highcharts:3.13.1') {
+            exclude group: 'io.pebbletemplates', module: 'pebble'
+        }
+    }
 }
 
 
