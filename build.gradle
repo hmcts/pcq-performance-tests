@@ -17,7 +17,7 @@ dependencyManagement {
         mavenBom "org.springframework.cloud:spring-cloud-dependencies:2024.0.2"
     }
     dependencies {
-        // CVE-2022-24823
+        //CVE-2025-55163, CVE-2025-58056, CVE-2025-58057
         dependencySet(group: 'io.netty', version: '4.2.6.Final') {
             entry 'netty-buffer'
             entry 'netty-codec'
@@ -39,15 +39,6 @@ dependencyManagement {
             entry 'netty-transport-native-kqueue'
             entry 'netty-transport-native-unix-common'
             entry 'netty-codec-mqtt'
-        }
-        dependencySet(group: 'org.scala-lang', version: '2.13.16') {
-            entry 'scala-library'
-            entry 'scala-compiler'
-            entry 'scala-reflect'
-        }
-        dependencySet(group: 'ch.qos.logback', version: '1.5.18') {
-            entry 'logback-core'
-            entry 'logback-classic'
         }
     }
 }
