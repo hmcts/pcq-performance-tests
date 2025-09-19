@@ -17,7 +17,7 @@ dependencyManagement {
         mavenBom "org.springframework.cloud:spring-cloud-dependencies:2024.0.2"
     }
     dependencies {
-        dependencySet(group: 'io.netty', version: '4.2.4.Final') {
+        dependencySet(group: 'io.netty', version: '4.2.6.Final') {
             entry 'netty-buffer'
             entry 'netty-codec'
             entry 'netty-codec-dns'
