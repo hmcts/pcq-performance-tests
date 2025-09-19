@@ -17,7 +17,7 @@ dependencyManagement {
         mavenBom "org.springframework.cloud:spring-cloud-dependencies:2024.0.2"
     }
     dependencies {
-        // CVE-2022-24823
+        //CVE-2025-55163, CVE-2025-58056, CVE-2025-58057
         dependencySet(group: 'io.netty', version: '4.2.6.Final') {
             entry 'netty-buffer'
             entry 'netty-codec'
