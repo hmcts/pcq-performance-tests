@@ -4,7 +4,6 @@ properties([
       pipelineTriggers([cron('H 08 * * 1-5')]),
         parameters([
                 string(name: 'ENVIRONMENT', defaultValue: 'aat', description: 'Environment to test'),
-                string(name: 'URL_TO_TEST', defaultValue: 'https://pcq.aat.platform.hmcts.net', description: 'The URL you want to run these tests against'),
                 string(name: 'BaseURL', defaultValue: 'https://pcq.aat.platform.hmcts.net', description: 'The CCD Case Create Url')
         ])
 ])
@@ -18,7 +17,17 @@ withNightlyPipeline("java", product, component) {
     // Add any environment variables for executing your performance tests for example see below
      env.TEST_URL = 'https://pcq.aat.platform.hmcts.net'
      env.BaseURL = 'https://pcq.aat.platform.hmcts.net'
-    
+
+    afterAlways('checkout') {
+
+        // Verify suppression file exists and show its contents
+        sh """
+            echo "Checking for suppression file..."
+            ls -la config/owasp/suppressions.xml || echo "File not found!"
+            echo "Suppression file contents:"
+            cat config/owasp/suppressions.xml || echo "Cannot read file!"
+        """
+    }
     enablePerformanceTest()
 
     after('performanceTest') {
