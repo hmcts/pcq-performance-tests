@@ -12,6 +12,10 @@ apply plugin: "org.owasp.dependencycheck"
 group 'uk.gov.hmcts.reform'
 version = '1.0'
 
+dependencyCheck {
+    suppressionFile = "config/owasp/suppressions.xml"
+}
+
 dependencyManagement {
     imports {
         mavenBom "org.springframework.cloud:spring-cloud-dependencies:2025.0.0"
