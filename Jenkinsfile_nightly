@@ -15,19 +15,8 @@ def component = "pcq-performance-tests"
 
 withNightlyPipeline("java", product, component) {
     // Add any environment variables for executing your performance tests for example see below
-     env.TEST_URL = 'https://pcq.aat.platform.hmcts.net'
      env.BaseURL = 'https://pcq.aat.platform.hmcts.net'
 
-    afterAlways('checkout') {
-
-        // Verify suppression file exists and show its contents
-        sh """
-            echo "Checking for suppression file..."
-            ls -la config/owasp/suppressions.xml || echo "File not found!"
-            echo "Suppression file contents:"
-            cat config/owasp/suppressions.xml || echo "Cannot read file!"
-        """
-    }
     enablePerformanceTest()
 
     after('performanceTest') {
