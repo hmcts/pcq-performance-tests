@@ -1,3 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <suppressions xmlns="https://jeremylong.github.io/DependencyCheck/dependency-suppression.1.3.xsd">
+
+    <!-- gatling -->
+    <suppress>
+        <packageUrl>pkg:maven/io.gatling/gatling-shared-cli@0.0.7</packageUrl>
+        <cve>CVE-2025-51306</cve>
+        <cve>CVE-2025-51308</cve>
+    </suppress>
 </suppressions>
