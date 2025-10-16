@@ -22,7 +22,7 @@ dependencyManagement {
     }
     dependencies {
         //CVE-2025-55163, CVE-2025-58056, CVE-2025-58057
-        dependencySet(group: 'io.netty', version: '4.2.6.Final') {
+        dependencySet(group: 'io.netty', version: '4.2.7.Final') {
             entry 'netty-buffer'
             entry 'netty-codec'
             entry 'netty-codec-dns'
