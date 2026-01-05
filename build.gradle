@@ -5,10 +5,6 @@ plugins {
     id 'io.spring.dependency-management' version '1.1.7'
 }
 
-apply plugin: 'scala'
-apply plugin: 'io.gatling.gradle'
-apply plugin: "org.owasp.dependencycheck"
-
 group 'uk.gov.hmcts.reform'
 version = '1.0'
 
@@ -21,7 +17,7 @@ dependencyManagement {
         mavenBom "org.springframework.cloud:spring-cloud-dependencies:2025.1.0"
     }
     dependencies {
-        //CVE-2025-55163, CVE-2025-58056, CVE-2025-58057
+        //CVE-2025-67735
         dependencySet(group: 'io.netty', version: '4.2.8.Final') {
             entry 'netty-buffer'
             entry 'netty-codec'
@@ -57,17 +53,7 @@ java {
 
 tasks.withType(JavaExec).configureEach {
     javaLauncher.set(javaToolchains.launcherFor(java.toolchain))
-}
-
-tasks.withType(JavaExec) {
-    // Configure the size of the JVM if necessary
     jvmArgs = ['-Xms1024m', '-Xmx2048m']
-    /* Use the following args to build a report when a test was terminated
-    args = [
-        "--reports-only", "fact-20201109092032896",
-        '--results-folder', file('build/reports/gatling').absolutePath,
-        ]
-    */
 }
 
 tasks.withType(Copy).all{
@@ -95,14 +81,12 @@ gatlingRun {
 }*/
 
 
-
 dependencies {
-    dependencies {
-        implementation('io.gatling.highcharts:gatling-charts-highcharts:3.14.5') {
-            exclude group: 'io.pebbletemplates', module: 'pebble'
-        }
+    implementation('io.gatling.highcharts:gatling-charts-highcharts:3.14.5') {
+        exclude group: 'io.pebbletemplates', module: 'pebble'
     }
 }
+
 
 
 sourceSets {
