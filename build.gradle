@@ -39,8 +39,10 @@ dependencyManagement {
             entry 'netty-transport'
             entry 'netty-transport-classes-epoll'
             entry 'netty-transport-classes-kqueue'
+            entry 'netty-transport-classes-io_uring'
             entry 'netty-transport-native-epoll'
             entry 'netty-transport-native-kqueue'
+            entry 'netty-transport-native-io_uring'
             entry 'netty-transport-native-unix-common'
             entry 'netty-codec-mqtt'
         }
