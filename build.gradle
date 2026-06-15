@@ -8,6 +8,8 @@ plugins {
 group 'uk.gov.hmcts.reform'
 version = '1.0'
 
+ext['netty.version'] = '4.2.15.Final'
+
 dependencyCheck {
     suppressionFile = "config/owasp/suppressions.xml"
 }
@@ -15,33 +17,6 @@ dependencyCheck {
 dependencyManagement {
     imports {
         mavenBom "org.springframework.cloud:spring-cloud-dependencies:2025.1.1"
-    }
-    dependencies {
-        //CVE-2025-67735
-        dependencySet(group: 'io.netty', version: '4.2.13.Final') {
-            entry 'netty-buffer'
-            entry 'netty-codec'
-            entry 'netty-codec-dns'
-            entry 'netty-codec-http'
-            entry 'netty-codec-http2'
-            entry 'netty-codec-socks'
-            entry 'netty-common'
-            entry 'netty-handler'
-            entry 'netty-handler-proxy'
-            entry 'netty-resolver'
-            entry 'netty-resolver-dns'
-            entry 'netty-resolver-dns-classes-macos'
-            entry 'netty-resolver-dns-native-macos'
-            entry 'netty-transport'
-            entry 'netty-transport-classes-epoll'
-            entry 'netty-transport-classes-kqueue'
-            entry 'netty-transport-classes-io_uring'
-            entry 'netty-transport-native-epoll'
-            entry 'netty-transport-native-kqueue'
-            entry 'netty-transport-native-io_uring'
-            entry 'netty-transport-native-unix-common'
-            entry 'netty-codec-mqtt'
-        }
     }
 }
 
