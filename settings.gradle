@@ -1,0 +1,5 @@
+rootProject.name = 'pcq-performance-tests'
+
+include ':common-performance'
+
+project(':common-performance').projectDir = file('common/common-performance')
