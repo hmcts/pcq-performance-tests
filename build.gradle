@@ -8,10 +8,13 @@ plugins {
 group 'uk.gov.hmcts.reform'
 version = '1.0'
 
-ext['netty.version'] = '4.2.15.Final'
+dependencies {
+    gatlingImplementation project(':common-performance')
+}
 
 dependencyCheck {
-    suppressionFile = "config/owasp/suppressions.xml"
+    suppressionFile = "common/common-performance/owasp/owasp-suppressions.xml"
+    analyzers.assemblyEnabled = false
 }
 
 dependencyManagement {
@@ -37,6 +40,11 @@ tasks.withType(Copy).all{
 
 repositories {
     mavenCentral()
+}
+
+gatling {
+    gatlingVersion '3.15.0'
+    scalaVersion '2.13.11'
 }
 
 gatlingRun {

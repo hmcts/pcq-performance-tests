@@ -15,7 +15,10 @@ def component = "pcq-performance-tests"
 
 withNightlyPipeline("java", product, component) {
     // Add any environment variables for executing your performance tests for example see below
-     env.BaseURL = 'https://pcq.aat.platform.hmcts.net'
+    env.BaseURL = 'https://pcq.aat.platform.hmcts.net'
+    afterAlways('checkout') {
+        sh """ git submodule update --init --recursive --remote"""
+    }
 
     enablePerformanceTest()
 
