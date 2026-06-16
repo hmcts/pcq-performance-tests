@@ -3,6 +3,9 @@
   "extends": [
     "local>hmcts/.github:renovate-config"
   ],
+  "git-submodules": {
+    "enabled": true
+  },
   "packageRules": [
     {
       "groupName": "all non-major dependencies",
@@ -14,6 +17,11 @@
         "minor",
         "patch"
       ]
+    },
+    {
+      "matchManagers": ["git-submodules"],
+      "matchDepNames": ["common/common-performance"],
+      "automerge": true
     }
   ],
   "schedule": [
