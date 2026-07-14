@@ -8,6 +8,25 @@ plugins {
 group 'uk.gov.hmcts.reform'
 version = '1.0'
 
+ext {
+  netty41Version = '4.1.136.Final'
+  netty42Version = '4.2.16.Final'
+}
+
+allprojects {
+  configurations.configureEach {
+    resolutionStrategy.eachDependency { details ->
+      if (details.requested.group == 'io.netty' && details.requested.version != null) {
+        if (details.requested.version.startsWith('4.2.')) {
+          details.useVersion netty42Version
+        } else if (details.requested.version.startsWith('4.1.')) {
+          details.useVersion netty41Version
+        }
+      }
+    }
+  }
+}
+
 dependencies {
     gatlingImplementation project(':common-performance')
 }
@@ -59,32 +78,6 @@ gatlingRun {
         assemblyEnabled = false
     }
 }*/
-
-
-dependencies {
-    implementation('io.gatling.highcharts:gatling-charts-highcharts:3.15.1') {
-        exclude group: 'io.pebbletemplates', module: 'pebble'
-    }
-}
-
-ext {
-  netty41Version = '4.1.136.Final'
-  netty42Version = '4.2.16.Final'
-}
-
-allprojects {
-  configurations.configureEach {
-    resolutionStrategy.eachDependency { details ->
-      if (details.requested.group == 'io.netty' && details.requested.version != null) {
-        if (details.requested.version.startsWith('4.2.')) {
-          details.useVersion netty42Version
-        } else if (details.requested.version.startsWith('4.1.')) {
-          details.useVersion netty41Version
-        }
-      }
-    }
-  }
-}
 
 sourceSets {
     gatling {
