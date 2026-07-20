@@ -1,9 +1,9 @@
-package uk.gov.hmcts.pcq.scenarios
+package scenarios
 
 import io.gatling.core.Predef._
 import io.gatling.http.Predef._
-import uk.gov.hmcts.pcq.scenarios.utils._
-import uk.gov.hmcts.pcq.scenarios.checks._
+import utils.Environment
+
 import scala.concurrent.duration._
 
 object PCQQuestions {

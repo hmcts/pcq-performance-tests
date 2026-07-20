@@ -1,10 +1,10 @@
-package uk.gov.hmcts.pcq.simulations
+package simulations
 
 import io.gatling.core.Predef._
 import io.gatling.core.scenario.Simulation
-import io.gatling.http.Predef._ 
-import uk.gov.hmcts.pcq.scenarios._
-import uk.gov.hmcts.pcq.scenarios.utils._
+import scenarios._
+import utils._
+
 import scala.concurrent.duration._
 
 class PCQSimulation extends Simulation {
